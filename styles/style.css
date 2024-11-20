@@ -2,7 +2,7 @@
   font-family: "Aktiv Grotesk";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/AktivGroteskCorp-Regular.woff2") format("woff2");
+  src: url("../fonts/GothamPro.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -10,7 +10,7 @@
   font-family: "Aktiv Grotesk Bold";
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/AktivGroteskCorp-Bold.woff2") format("woff2");
+  src: url("../fonts/GothamProNarrow-Bold.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -18,7 +18,7 @@
   font-family: "Compacta";
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/CompactaPlain.woff2") format("woff2");
+  src: url("../fonts/GothamPro-Medium.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -29,13 +29,22 @@
   text-decoration: none;
   scroll-behavior: smooth;
 }
+
 :root {
+  --bg-color: black;
+  --second-bg-color: rgb(29, 29, 29);
+  --text-color: white;
+  --second-text-color: rgb(44, 13, 44);
+  --main-color: white;
+}
+
+/* :root {
   --bg-color: #16251C;
   --second-bg-color: #101010;
   --text-color: #7B917B;
   --second-text-color: #B32428;
   --main-color: #7B917B;
-}
+} */
 
 html {
   font-size: 60%;
@@ -59,7 +68,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  font-family: "Aktiv Grotesk Bold", sans-serif;
+  font-family: "Aktiv Grotesk", sans-serif;
   font-weight: 700;
 }
 
@@ -98,7 +107,6 @@ span {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   border-bottom: 3px solid transparent;
-  text-transform: uppercase;
 }
 
 .navbar a:hover {
@@ -109,12 +117,6 @@ span {
 .gradient-btn {
   font-size: 1.8rem;
   padding: 1rem 2rem;
-  border-radius: 3rem;
-  background: linear-gradient(
-    270deg,
-    #B32428 10%,
-    #791519 100%
-  );
   letter-spacing: 1px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
@@ -123,7 +125,8 @@ span {
   text-wrap: nowrap;
   font-family: "Aktiv Grotesk Bold", sans-serif;
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
+  text-decoration: underline;
 }
 
 .gradient-btn:hover {
@@ -136,6 +139,56 @@ section {
 }
 
 .home {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.home-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 50px; /* Добавлено для отступа от стрелки */
+}
+
+.portfolio-title {
+  font-size: 96px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-family: "Aktiv Grotesk", sans-serif;
+}
+
+.signature img {
+  margin-top: 20px;
+  width: 200px;
+}
+
+/* Стрелка */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.5);
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+/* .home {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,10 +234,10 @@ section {
   box-shadow: 0 0 25px var(--main-color),
               0 0 50px var(--main-color),
               0 0 100px var(--main-color);
-}
+} */
 
 .bx {
-  color: #B32428;
+  color: rgba(255, 255, 255, 0.377);
 }
 
 .social-icons a{
@@ -199,11 +252,12 @@ section {
   color: var(--main-color);
   margin: 3rem 0.5rem;
   transition: 0.3s ease-in-out;
+  margin-top: 50px;
 }
 
 .social-icons a:hover {
-  color: var(--text-color);
-  background: var(--main-color);
+  color: white;
+  background: black;
   transform: scale(1.2)translateY(-5px);
   box-shadow: 0 0 25px var(--main-color);
 }
@@ -627,7 +681,7 @@ section {
 }
 
 .footer ul li a {
-  color: var(--second-text-color);
+  color: white;
   border-bottom: 3px solid transparent;
   transition: 0.3s ease-in-out;
 }
